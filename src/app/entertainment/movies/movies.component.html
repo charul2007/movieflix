@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<div class="sidebar">
+		<ul class="nav nav-pills nav-stacked">
+		  <li class=""><a routerLink="/popular" routerLinkActive="active">Popular</a></li>
+		  <li class=""><a routerLink="/toprated" routerLinkActive="active">Top Rated</a></li>
+		  <li class=""><a routerLink="/upcoming" routerLinkActive="active">Upcoming</a></li>
+		  <li class=""><a routerLink="/nowplaying" routerLinkActive="active">Now Playing</a></li>
+		</ul>
+	</div>
+	<div class="movie-container">
+		<div class="response" *ngFor="let item of list | json">
+			<div class="tile item">
+				
+			</div>
+		</div>
+	</div>
+</div>

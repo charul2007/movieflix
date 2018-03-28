@@ -1,0 +1,28 @@
+.people-tile-container {
+	display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.people-content {
+	width: 235px;
+    height: 235px;
+    margin: 10px 10px 10px 0px;
+}
+.people-name {
+	background-color: rgba(255,255,255,0.9);
+    position: relative;
+    top: -40px;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    height: 40px;
+    font-weight: 600;
+}
