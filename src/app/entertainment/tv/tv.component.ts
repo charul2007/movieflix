@@ -14,12 +14,13 @@ import { Pagination } from '../../shared/pagination.interface';
 		<div class="sidebar">
 			<ul class="nav nav-pills nav-stacked">
 			  <li *ngFor="let nav of leftNavMenuItems">
-			  	<a routerLink="/movies/{{nav.link}}" routerLinkActive="active">{{nav.caption}}</a>
+			  	<a routerLink="/tv/{{nav.link}}" routerLinkActive="active">{{nav.caption}}</a>
 			  </li>
 			</ul>
 		</div>
 		<div>
 			<pagination [paginationDetails]="paginationDetails" [baseUrl]="baseUrl" (onPaging)="onPaging($event)"></pagination>
+			<entertainment-list [type]="tv" [tiles]="tiles"></entertainment-list>
 		</div>
 	</div>
   `,
@@ -34,7 +35,7 @@ export class TvComponent implements OnInit {
   private leftNavMenuItems = [
 	{ caption: 'Popular', link: [ '/popular/1' ] },
 	{ caption: 'Top Rated', link: [ '/top_rated/1' ] },
-	{ caption: 'On Tv', link: [ '/on_tv/1' ] },
+	{ caption: 'On Air', link: [ '/on_the_air/1' ] },
 	{ caption: 'Airing Today', link: [ '/airing_today/1' ] }
   ];
   private category: string = '';

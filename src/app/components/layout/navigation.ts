@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 					</a>
 				</li>
 	      <li class=""><a routerLink="/movies/popular/1" routerLinkActive="active">Movies</a></li>
-	      <li class=""><a routerLink="/tv" routerLinkActive="active">TV Shows</a></li>
+	      <li class=""><a routerLink="/tv/popular/1" routerLinkActive="active">TV Shows</a></li>
 	      <li class=""><a routerLink="/people/1" routerLinkActive="active">People</a></li>
 	    </ul>
 

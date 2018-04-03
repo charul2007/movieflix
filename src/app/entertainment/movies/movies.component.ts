@@ -20,7 +20,7 @@ import { Pagination } from '../../shared/pagination.interface';
 		</div>
 		<div>
 			<pagination [paginationDetails]="paginationDetails" [baseUrl]="baseUrl" (onPaging)="onPaging($event)"></pagination>
-			<movies-list [tiles]="tiles"></movies-list>
+			<entertainment-list [type]="movies" [tiles]="tiles"></entertainment-list>
 		</div>
 	</div>
   `,

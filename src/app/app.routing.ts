@@ -6,20 +6,17 @@ import { HomeComponent } from './home/home.component';
 import { moviesRoutes } from './entertainment/movies/movies.routing';
 import { TvComponent } from './entertainment/tv/tv.component';
 import { peopleRoutes } from './entertainment/people/people.routing';
+import { tvRoutes } from './entertainment/tv/tv.routing';
 
 export const routes: Routes = [
   ...moviesRoutes,
   ...peopleRoutes,
+  ...tvRoutes,
 
   { path: 'login', component: LoginComponent },
   { 
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard] 
-  },
-  { 
-    path: 'tv',
-    component: TvComponent,
     canActivate: [AuthGuard] 
   },
   { path: '**', redirectTo: '' } // default fallback

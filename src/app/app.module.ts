@@ -17,10 +17,11 @@ import { AuthService } from './auth/auth.service';
 import { GuardService as AuthGuard } from './services/guard.service';
 import { MoviesService } from './entertainment/movies/movies.service';
 import { PeopleService } from './entertainment/people/people.service';
+import { TvService } from './entertainment/tv/tv.service';
 /// Routing ///
 import { routing, appRoutingProviders } from './app.routing';
 import { MoviesComponent } from './entertainment/movies/movies.component';
-import { MoviesListComponent } from './entertainment/movies/movies.list.component';
+import { EntertainmentListComponent } from './components/entertainment/entertainment.list.component';
 import { SingleMovieDetailComponent } from './entertainment/movies/single-movie-detail/single-movie-detail.component';
 import { TvComponent } from './entertainment/tv/tv.component';
 import { PeopleComponent } from './entertainment/people/people.component';
@@ -48,7 +49,7 @@ export const firebaseConfig = {
     NavigationComponent,
     PaginationComponent,
     MoviesComponent,
-    MoviesListComponent,
+    EntertainmentListComponent,
     SingleMovieDetailComponent,
     TvComponent,
     PeopleComponent,
@@ -68,7 +69,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     // RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, AuthGuard, appRoutingProviders, MoviesService, PeopleService],
+  providers: [AuthService, AuthGuard, appRoutingProviders, MoviesService, PeopleService, TvService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
