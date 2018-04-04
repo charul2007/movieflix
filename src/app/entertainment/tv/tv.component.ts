@@ -20,6 +20,7 @@ import { Pagination } from '../../shared/pagination.interface';
 		</div>
 		<div>
 			<pagination [paginationDetails]="paginationDetails" [baseUrl]="baseUrl" (onPaging)="onPaging($event)"></pagination>
+			<loading-indicator [show]="loading" [size]="3" [spikes]="12"></loading-indicator>
 			<entertainment-list [type]="tv" [tiles]="tiles"></entertainment-list>
 		</div>
 	</div>
@@ -44,7 +45,8 @@ export class TvComponent implements OnInit {
   	page: 0,
   	total_pages: 0,
   	total_results: 0
-  }
+  };
+  private loading = true;
 
   constructor(private tvService: TvService,
   	     	  private route: ActivatedRoute,
@@ -56,6 +58,7 @@ export class TvComponent implements OnInit {
   		this.category = params['category'];
   		this.page = params['page'];
   		this.tvService.getTv(this.category, this.page).subscribe(res => {
+  			this.loading = false;
 			this.tiles = res.results;
 			this.paginationDetails.page = res.page;
 			this.paginationDetails.total_pages = res.total_pages

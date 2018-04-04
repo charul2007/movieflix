@@ -20,6 +20,7 @@ import { Pagination } from '../../shared/pagination.interface';
 		</div>
 		<div>
 			<pagination [paginationDetails]="paginationDetails" [baseUrl]="baseUrl" (onPaging)="onPaging($event)"></pagination>
+			<loading-indicator [show]="loading" [size]="3" [spikes]="12"></loading-indicator>
 			<entertainment-list [type]="movies" [tiles]="tiles"></entertainment-list>
 		</div>
 	</div>
@@ -43,6 +44,7 @@ export class MoviesComponent implements OnInit {
   	total_pages: 0,
   	total_results: 0
   }
+  private loading = true;
 
   constructor(private moviesService: MoviesService,
   	     	  private route: ActivatedRoute,
@@ -54,6 +56,7 @@ export class MoviesComponent implements OnInit {
   		this.category = params['category'];
   		this.page = params['page'];
   		this.moviesService.getMovie(this.category, this.page).subscribe(res => {
+  			this.loading = false;
 			this.tiles = res.results;
 			this.paginationDetails.page = res.page;
 			this.paginationDetails.total_pages = res.total_pages

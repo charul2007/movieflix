@@ -31,6 +31,7 @@ import { StatusColorPipe } from './shared/status-color.pipe';
 import { JoinPipe } from './shared/join.pipe';
 import { ProductionCountriesPipe } from './shared/production.countries.pipe';
 import { CrewSortPipe } from './shared/crew.sort.pipe';
+import { LoadingIndicator } from './shared/loading-indicator';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDpsN3jievBApLmEQGlYBRTGDdQzdTLt6Y",
@@ -58,7 +59,8 @@ export const firebaseConfig = {
     StatusColorPipe,
     JoinPipe,
     ProductionCountriesPipe,
-    CrewSortPipe
+    CrewSortPipe,
+    LoadingIndicator
   ],
   imports: [
     routing,

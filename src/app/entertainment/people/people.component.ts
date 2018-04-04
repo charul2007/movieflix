@@ -13,7 +13,8 @@ import { Pagination } from '../../shared/pagination.interface';
   	<div class="container-fluid">
 		<div class="row">
 			<pagination [paginationDetails]="paginationDetails" [baseUrl]="baseUrl" (onPaging)="onPaging($event)"></pagination>
-			<div class="people-tile-container">
+			<loading-indicator [show]="loading" [size]="3" [spikes]="12"></loading-indicator>
+      <div class="people-tile-container">
 				<div class="people-content" *ngFor="let tile of tiles">
 					<a routerLink="/person/{{tile.id}}" routerLinkActive="active">
 						<img src="https://image.tmdb.org/t/p/w235_and_h235_bestv2{{tile.profile_path}}">
@@ -39,6 +40,7 @@ export class PeopleComponent implements OnInit {
   	total_results: 0
   }
   private baseUrl = '/people';
+  private loading = true;
 
   constructor(private peopleService: PeopleService,
   	     	  private route: ActivatedRoute,
@@ -49,6 +51,7 @@ export class PeopleComponent implements OnInit {
   	this.route.params.subscribe(params => {
   		this.page = params['page'];
   		this.peopleService.getPeople(this.page).subscribe(res => {
+      this.loading = false;
 			this.tiles = res.results;
 			this.paginationDetails.page = res.page;
 			this.paginationDetails.total_pages = res.total_pages
